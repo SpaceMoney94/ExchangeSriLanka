@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>О нас — Space Money</title>
+
+<style>
+body { margin:0; font-family:Inter,sans-serif; color:#fff; background:#000; }
+
+#stars, #stars2, #stars3 {
+    position:fixed; top:0; left:0; width:200%; height:200%;
+    background-repeat:repeat;
+    animation:move 80s linear infinite;
+    z-index:-10;
+}
+#stars{background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.5;}
+#stars2{background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.3; animation-duration:120s;}
+#stars3{background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.15; animation-duration:180s;}
+@keyframes move { from{transform:translate3d(0,0,0);} to{transform:translate3d(-1000px,1000px,0);} }
+
+nav {
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    position:sticky; top:0;
+}
+nav a { color:#7ae9ff; margin-left:20px; text-decoration:none; font-size:18px; font-weight:600; }
+nav a:hover { color:#00eaff; }
+
+.box {
+    max-width:800px;
+    margin:100px auto;
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+}
+h1 { text-align:center; font-size:36px; margin-bottom:20px; }
+
+p { font-size:20px; line-height:1.6; }
+</style>
+
+</head>
+<body>
+<div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
+
+<nav>
+    <div style="font-weight:900;font-size:28px;color:#00eaff;">SPACE MONEY</div>
+    <div>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="contact.html">Контакты</a>
+    </div>
+</nav>
+
+<div class="box">
+<h1>О нас</h1>
+
+<p>
+Space Money — это современный сервис обмена валют на Шри-Ланке.  
+Мы работаем быстро, безопасно и по честному фиксированному курсу 1 RUB = 3.75 LKR.
+</p>
+
+<p>
+Наша миссия — сделать обмен денег удобным и безопасным для туристов, приезжающих в Шри-Ланку.
+</p>
+
+<p>
+Мы работаем 24/7 и всегда на связи.
+</p>
+
+</div>
+</body>
+</html>

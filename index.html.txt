@@ -1,0 +1,185 @@
+if (a <= 0) return alert("Введите правильную сумму!");
+    const lkr = (a * 3.75).toFixed(2);
+    const box = document.getElementById("result");
+    box.style.display = "block";
+    box.innerHTML = ${a} RUB → <br><b>${lkr} LKR</b>;
+}
+</script>
+
+</body>
+</html>
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Space Money — Обмен RUB → LKR</title>
+
+<style>
+/* ===== ОБЩИЙ СТИЛЬ + АНИМАЦИЯ ===== */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    background: #000;
+    overflow-x: hidden;
+}
+
+#stars, #stars2, #stars3 {
+    position: fixed;
+    top:0; left:0;
+    width:200%; height:200%;
+    background-repeat: repeat;
+    animation: moveStars 60s linear infinite;
+    z-index:-10;
+}
+#stars { background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.5; }
+#stars2 { background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.3; animation-duration:120s; }
+#stars3 { background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.15; animation-duration:180s; }
+
+@keyframes moveStars {
+    from { transform:translate3d(0,0,0); }
+    to   { transform:translate3d(-1000px,1000px,0); }
+}
+
+/* ===== НАВИГАЦИЯ ===== */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 40px;
+    position:sticky;
+    top:0;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid rgba(255,255,255,0.1);
+}
+
+nav a {
+    color:#7ae9ff;
+    text-decoration:none;
+    margin-left:20px;
+    font-weight:600;
+    font-size:18px;
+}
+nav a:hover { color:#00eaff; }
+
+/* Логотип */
+.logo {
+    font-size:30px;
+    font-weight:900;
+    letter-spacing:2px;
+    background:linear-gradient(90deg,#00eaff,#7affd9);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* ===== КОНТЕЙНЕР ===== */
+.main-box {
+    max-width:700px;
+    margin:90px auto;
+    padding:40px;
+    background:rgba(255,255,255,0.05);
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.1);
+    backdrop-filter:blur(12px);
+    text-align:center;
+    box-shadow:0 0 40px rgba(0,255,255,0.25);
+}
+
+/* Заголовок */
+h1 {
+    font-size:36px;
+    font-weight:900;
+    background:linear-gradient(90deg,#00eaff,#7affd9,#00f0ff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* Инпут */
+input {
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.25);
+    background:rgba(0,0,0,0.45);
+    color:#fff;
+    font-size:20px;
+}
+
+/* Неоновая кнопка */
+.btn {
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    background:linear-gradient(135deg,#00eaff,#008cff);
+    border-radius:14px;
+    border:none;
+    font-size:20px;
+    font-weight:800;
+    color:#001;
+    cursor:pointer;
+    box-shadow:0 0 20px #00eaff;
+    transition:0.2s;
+}
+.btn:hover { transform:scale(1.05); }
+
+/* Результат */
+.result {
+    margin-top:20px;
+    padding:20px;
+    background:rgba(255,255,255,0.1);
+    border-radius:14px;
+    box-shadow:0 0 20px rgba(0,255,255,0.25);
+    font-size:22px;
+    font-weight:700;
+}
+
+/* Кнопка контакта */
+.contact-btn {
+    margin-top:30px;
+    display:block;
+    padding:15px;
+    border-radius:14px;
+    background:linear-gradient(90deg,#00f0ff,#00ffa2);
+    color:#001;
+    font-weight:800;
+    font-size:20px;
+    text-decoration:none;
+    box-shadow:0 0 20px #00ffa2;
+}
+</style>
+</head>
+<body>
+
+<!-- Космос -->
+<div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
+
+<!-- Меню -->
+<nav>
+    <div class="logo">SPACE MONEY</div>
+    <div>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="contact.html">Контакты</a>
+    </div>
+</nav>
+
+<div class="main-box">
+    <h1>Обмен рублей на рупии</h1>
+    <p>Фиксированный курс — <b>1 RUB = 3.75 LKR</b></p>
+
+    <label>Введите сумму в рублях:</label>
+    <input type="number" id="rub" placeholder="Например: 10000">
+
+    <button class="btn" onclick="convert()">Конвертировать</button>
+
+    <div id="result" class="result" style="display:none;"></div>
+
+    <a href="https://wa.me/94785108459" class="contact-btn" target="_blank">Связаться мгновенно</a>
+</div>
+
+<script>
+function convert() {
+    const a = Number(document.getElementById("rub").value);

@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Контакты — Space Money</title>
+
+<style>
+body { margin:0; font-family:Inter,sans-serif; color:#fff; background:#000; }
+
+#stars, #stars2, #stars3 {
+    position:fixed; top:0; left:0; width:200%; height:200%;
+    background-repeat:repeat;
+    animation:move 80s linear infinite;
+    z-index:-10;
+}
+#stars{background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.5;}
+#stars2{background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.3; animation-duration:120s;}
+#stars3{background-image:url("https://i.imgur.com/0j1n5cF.png"); opacity:0.15; animation-duration:180s;}
+@keyframes move { from{transform:translate3d(0,0,0);} to{transform:translate3d(-1000px,1000px,0);} }
+
+nav {
+    display:flex;
+    justify-content:space-between;
+    padding:20px 40px;
+    background:rgba(0,0,0,0.5);
+    backdrop-filter:blur(10px);
+    position:sticky; top:0;
+}
+nav a { color:#7ae9ff; margin-left:20px; text-decoration:none; font-size:18px; font-weight:600; }
+nav a:hover { color:#00eaff; }
+
+.box {
+    max-width:700px;
+    margin:100px auto;
+    background:rgba(255,255,255,0.08);
+    padding:40px;
+    border-radius:20px;
+    backdrop-filter:blur(15px);
+}
+
+input, textarea {
+    width:100%;
+    padding:14px;
+    margin-top:15px;
+    border-radius:12px;
+    background:rgba(0,0,0,0.4);
+    border:1px solid rgba(255,255,255,0.2);
+    color:#fff;
+    font-size:18px;
+}
+
+.btn {
+    display:block;
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    border-radius:14px;
+    background:linear-gradient(90deg,#00eaff,#007bff);
+    font-size:20px;
+    font-weight:800;
+    border:none;
+    cursor:pointer;
+}
+</style>
+
+</head>
+<body>
+
+<div id="stars"></div><div id="stars2"></div><div id="stars3"></div>
+
+<nav>
+    <div style="font-weight:900;font-size:28px;color:#00eaff;">SPACE MONEY</div>
+    <div>
+        <a href="index.html">Главная</a>
+        <a href="about.html">О нас</a>
+        <a href="contact.html">Контакты</a>
+    </div>
+</nav>
+
+<div class="box">
+    <h1 style="text-align:center">Связаться с нами</h1>
+
+    <p style="text-align:center;font-size:20px;">
+        WhatsApp: <a href="https://wa.me/94785108459" style="color:#7ae9ff;">+94 78 510 8459</a><br>
+        Telegram: <a href="https://t.me/xchgvszby" style="color:#7ae9ff;">@xchgvszby</a>
+    </p>
+
+    <h2>Оставить заявку</h2>
+
+    <input type="text" placeholder="Ваше имя">
+    <input type="number" placeholder="Сумма в RUB">
+    <textarea rows="5" placeholder="Как с вами связаться? (WhatsApp / Telegram)"></textarea>
+
+    <button class="btn">Отправить</button>
+</div>
+
+</body>
+</html>
